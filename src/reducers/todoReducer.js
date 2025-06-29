@@ -1,33 +1,20 @@
-// // EJEMPLO INICIAL
 
-// const initialState = [
-//     {
-//         titulo: 'Lavadora',
-//         descripcion: 'Tender lavadora'
-//     }
-// ]
 
-// export const todoReducer = (state = initialState, action) => {
- 
+export const todoReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'Add todo':
+            return [...state, action.payload];
 
-//     if (action.type === "addTarea"){
-//         return [...state, action.payload]
-//     }
+        case 'Delete todo':
+            return state.filter(todo => todo.id !== action.payload)
+
+        case 'Toggle todo':
+            return state.map(todo => 
+                todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+            );
+        
+        default: 
+            return state;
+    }
     
-//     return state
-// }
-
-
-// const newTarea = {
-//     titulo: 'Lavadora 2',
-//     descripcion: 'Tender lavadora 2',
-// }
-
-// const action = {
-//     type: "addTarea",
-//     payload: newTarea,
-// }
-
-// let tareas = todoReducer (initialState, action)
-
-
+}
