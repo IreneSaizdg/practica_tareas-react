@@ -1,5 +1,4 @@
-import React from 'react';
-import { Todos } from './components/Todos';
+import ComponentTodoList from './components/componentTodoList';
 
 
 const App = () => {
@@ -9,7 +8,7 @@ const App = () => {
                 <h1>Práctica Todo List</h1>
             </header>
             <main>
-                <Todos />
+                <ComponentTodoList/>
             </main>
             <footer>
                 Práctica Todo List
